@@ -156,50 +156,44 @@
             scroll-behavior: smooth;
         }
 
-        /* Dashboard Image Banner Styles */
+        /* Dashboard Image Banner - Only your image */
         .dashboard-banner {
-            background: linear-gradient(135deg, #1a237e 0%, #0d1b4a 100%);
+            background: linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 100%);
             border-radius: 20px;
-            padding: 15px;
+            padding: 20px;
             margin-bottom: 15px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,215,0,0.2);
         }
 
-        .banner-title {
+        .s-letter {
+            font-size: 48px;
+            font-weight: 800;
             color: #ffd700;
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .tracking-card {
-            background: rgba(255,255,255,0.1);
-            border-radius: 12px;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid rgba(255,215,0,0.3);
-        }
-
-        .tracking-code {
-            font-family: 'Courier New', monospace;
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffd700;
-            letter-spacing: 1px;
-            word-break: break-all;
-        }
-
-        .tracking-label {
-            font-size: 11px;
-            color: #aaa;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+            letter-spacing: 8px;
             margin-bottom: 5px;
         }
 
-        .banner-icon {
-            font-size: 24px;
-            margin-bottom: 8px;
+        .s-letter-small {
+            font-size: 36px;
+            font-weight: 800;
+            color: #ffd700;
+            text-shadow: 0 0 8px rgba(255,215,0,0.4);
+            letter-spacing: 6px;
+        }
+
+        .earn-tether {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-top: 12px;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .bot-msg {
@@ -481,8 +475,9 @@
         @media (max-width: 768px) {
             .admin-table { font-size: 10px; }
             .admin-table th, .admin-table td { padding: 5px; }
-            .banner-title { font-size: 22px; }
-            .tracking-code { font-size: 13px; }
+            .s-letter { font-size: 36px; letter-spacing: 4px; }
+            .s-letter-small { font-size: 28px; letter-spacing: 3px; }
+            .earn-tether { font-size: 18px; }
         }
     </style>
 </head>
@@ -518,14 +513,6 @@
     let isAdminMode = false;
     let adminTargetUser = null;
     let currentPage = 'login';
-    
-    // Tracking data from image
-    const trackingData = [
-        { code: "H8", number: "DH193373841A" },
-        { code: "H8", number: "DH193373841A" },
-        { code: "H8", number: "DH382217524A" },
-        { code: "H8", number: "DH382217524A" }
-    ];
     
     async function showTyping(chatBox, duration = 8000) {
         let typingDiv = document.createElement('div');
@@ -593,19 +580,14 @@
         return false;
     }
     
-    // Dashboard Banner Component
+    // Dashboard Banner - Only your image (S S S EarnTether)
     function renderDashboardBanner() {
         return `
             <div class="dashboard-banner">
-                <div class="banner-icon">📦</div>
-                <div class="banner-title">TRACKING INFORMATION</div>
-                ${trackingData.map(item => `
-                    <div class="tracking-card">
-                        <div class="tracking-label">Courier Code / Tracking Number</div>
-                        <div class="tracking-code">${item.code} | ${item.number}</div>
-                    </div>
-                `).join('')}
-                <div style="font-size: 10px; color: #888; margin-top: 10px;">Last updated: ${new Date().toLocaleDateString()}</div>
+                <div class="s-letter">S</div>
+                <div class="s-letter-small">S</div>
+                <div class="s-letter-small" style="font-size: 30px; margin-top: -5px;">S</div>
+                <div class="earn-tether">EarnTether</div>
             </div>
         `;
     }
@@ -1059,7 +1041,7 @@
                     <span style="font-size: 11px; color: green;">Online</span>
                     ${isAdminMode ? '<span class="admin-chat-badge">Admin Mode</span>' : ''}
                 </div>
-                <!-- Dashboard Banner with Tracking Info -->
+                <!-- Dashboard Banner - Only your S S S EarnTether Image -->
                 ${renderDashboardBanner()}
                 <div id="chatBox" class="chat-box"></div>
                 <div id="optionsArea" class="options-grid"></div>
